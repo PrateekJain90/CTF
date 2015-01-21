@@ -1,0 +1,10 @@
+Question:
+Many times, an attacker can use a buffer overflow to take control of the program's execution. the return address for the call to vuln function is above buf on the stack, so it can be overwritten with an overflow. this allows an attacker to put nearly any address they desire in place of the return address. in this example, the goal is to call the give_shell function. the address of this can be found using the shell below.
+
+
+
+used gdb
+
+call give_shell -> This gave the address of the function give shell
+
+wrote this address in %eip.

@@ -1,0 +1,19 @@
+This program requires you to guess a random 32-bit number! Sounds difficult, right? There is a server running at vuln2014.picoctf.com:4546, and the source can be found here.
+
+used netcat to connect to the server.
+
+nc vuln2014.picoctf.com 4546
+
+Input variable number of %d to see the content on the stack.
+The format string exploit works because of the presence of
+ 
+printf(name);
+
+in the code.
+
+Ran the program a few times to see which values on the stack were changing. 
+After 2-3 trials got the 32-bit random number stored on the stack. 
+
+36911090
+
+which got me the flag.
