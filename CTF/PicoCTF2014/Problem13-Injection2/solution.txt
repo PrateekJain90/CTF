@@ -1,0 +1,9 @@
+used the query: ' UNION select 'hello','hello','hello','hello',1338  LIMIT 1#
+
+First saw, that a debug flag is sent whenever I try to login.
+Set that value to one which helped in debugging the attack query.
+
+first used ' UNION select 'hello','hello',1338 but the number of columns didnt match as shown by the debug statements.
+Kept on increasing columns one by one until the login succeeded.
+
+As before, Limit 1 check is put to ensure that only 1 row is returned and 1338 put to handle the check for user level.

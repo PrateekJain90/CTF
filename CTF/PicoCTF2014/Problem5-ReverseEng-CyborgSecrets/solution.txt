@@ -1,0 +1,5 @@
+edited with notepad++
+
+found a string: DEBUG PASSWORD: 2manyHacks_Debug_Admin_Test
+
+this was hard coded into the code.

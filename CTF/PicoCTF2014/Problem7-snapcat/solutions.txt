@@ -1,0 +1,9 @@
+analysed .img file with autopsy
+
+searched for strings such as .txt, .png, .jpeg to find any personal files.
+
+found 5 strings which matched jpg. -> meant that the img file had jpg images inside.
+
+used linux kali -> tool-> recoverjpeg disk.img
+
+It extracted some images and one of them mentioned the flag.

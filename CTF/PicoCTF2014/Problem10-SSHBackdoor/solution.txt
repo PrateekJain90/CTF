@@ -1,0 +1,58 @@
+Downloaded the original version of openssh-6.7p1
+
+Compared the evil and the original versions using WinMerge.
+
+Found out that 3 of the files had been modified. authpass.c and auth.h and auth.c
+
+The function of interest was:
+
+
+static int frobcmp(const char *chk, const char *str) {
+	int rc = 0;
+	size_t len = strlen(str);
+	char *s = xstrdup(str);
+	memfrob(s, len);
+
+	if (strcmp(chk, s) == 0) {
+		rc = 1;
+	}
+
+	free(s);
+	return rc;
+}
+
+int check_password(const char *password) {
+	return frobcmp("CGCDSE_XGKIBCDOY^OKFCDMSE_XLFKMY", password);
+}
+
+So i basically implemented frobcmp and instead of the password passed the string CGCDSE_XGKIBCDOY^OKFCDMSE_XLFKMY and got the password.
+It is because, memfrob just does an XOR and repeating it reveals the original string.
+
+
+
+CODE:
+
+#include <stdio.h>
+#include<string.h>
+#include<stdlib.h>
+
+int main()
+{
+	int rc = 0;
+	char *chk = "CGCDSE_XGKIBCDOY^OKFCDMSE_XLFKMY";
+	size_t len = strlen(chk);
+	char *s = strdup(chk);
+	memfrob(s, len);
+
+    printf("%s",s);
+	
+    return 0;
+}
+
+
+
+
+
+
+
+

@@ -1,0 +1,19 @@
+Noted down the encrypted message and the public key from the packet capture.
+
+As it is mentioned in the code that the prime numbers are cached and that there are only 30 of them.
+
+I requested 100 pubic keys from the server using:
+for i in {1..100}; do nc vuln2014.picoctf.com 51818 >> keys.txt; done
+
+I converted the keys to integer values.
+
+Then i wrote a script which found the gcd of the captured key to these keys - one be one.
+
+I ended up with 2 prime numbers which were multiplied to get the public key which had been captured.
+
+Then a small program for inverse modulo gave me the decryption exponent.
+
+Again, I used the webpage extranet.cryptomathic.com/rsacalc/index to get the decrypted hex.
+
+hex to ascii then gave me the flag.
+

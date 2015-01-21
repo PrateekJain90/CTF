@@ -1,0 +1,6 @@
+Just used the link:
+extranet.cryptomathic.com/rsacalc/index
+
+and input the values specified in the question to get the decrypted hex.
+
+Converted the hex to ascii to get the flag.

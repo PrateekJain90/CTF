@@ -1,0 +1,13 @@
+Opened the webpage: found that images are being downloaded using a file_loader.php page.
+
+When changed the image name in the request, I got:
+No file at /resources/files/filename.
+
+Inferred that directory traversal attack can be done. Also i knew that the path was /resources/files.
+
+Tried a number of combinations with:
+../../resources/files => at this inout nothing got printed. So was sure that I am in right track.
+
+checked source code and found: "/resources/secrets/flag"
+
+Changed URL path to this and got the flag.

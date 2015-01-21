@@ -1,0 +1,7 @@
+Opened file in hex editor: HxD
+
+Saw -> mention of flag.txt and 7z.
+
+Inferred that the file is compressed -> extracted file using 7-z.
+
+Got the file flag.txt.

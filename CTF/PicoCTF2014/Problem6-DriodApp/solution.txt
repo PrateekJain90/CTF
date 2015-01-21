@@ -1,0 +1,13 @@
+decompressed the apk online: http://www.decompileandroid.com/
+
+as debug info is to be searched for ->  searched for files with "debug" mentioned in them
+
+found a file where the flag was stored in an array in the code -> ToasterActivity.java
+
+        mystery = new String(new char[] {
+            'f', 'l', 'a', 'g', ' ', 'i', 's', ':', ' ', 'w', 
+            'h', 'a', 't', '_', 'd', 'o', 'e', 's', '_', 't', 
+            'h', 'e', '_', 'l', 'o', 'g', 'c', 'a', 't', '_', 
+            's', 'a', 'y'
+        });
+

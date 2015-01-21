@@ -1,0 +1,6 @@
+Used normal SQL injection command:
+
+' or 1=1 LIMIT 1 #
+
+Used limit 1 as the code checked for the presence of a single row when the query was run.
+also used # to comment out the remaining query.
