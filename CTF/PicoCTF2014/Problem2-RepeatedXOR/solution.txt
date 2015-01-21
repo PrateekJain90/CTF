@@ -1,0 +1,6 @@
+Used a program called xortool to crack the repeated XOR.
+
+./xortool '/home/prateekj/Desktop/rxor.txt'  -x -b
+
+-x is used to specify that the input is hexadecimal.
+-b bruteforces on the hexadecimal and tries a number of keys till it gets something in plaintext.
