@@ -1,0 +1,5 @@
+checked the schema.rb -> found is_admin as a boolean field.
+
+Modified the register request by adding a field in the page with the name user_is_admin and sent a paramater is_admin as yes.
+
+Got the flag.
