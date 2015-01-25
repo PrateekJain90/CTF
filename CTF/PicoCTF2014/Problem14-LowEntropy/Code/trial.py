@@ -1,10 +1,4 @@
 #!/usr/bin/env python
-import os
-import SocketServer
-import threading
-import random
-import time
-
 
 with open('keys.txt') as my_file:
     testsite_array = my_file.readlines()

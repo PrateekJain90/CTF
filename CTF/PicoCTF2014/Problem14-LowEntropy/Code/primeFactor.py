@@ -1,9 +1,5 @@
 #!/usr/bin/env python
-import os
-import SocketServer
-import threading
-import random
-import time
+
 from fractions import gcd
 
 with open('test.txt') as my_file:
