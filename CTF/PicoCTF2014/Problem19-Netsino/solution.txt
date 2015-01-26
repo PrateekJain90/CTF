@@ -1,0 +1,10 @@
+Saw that in getnum(), the number is being read in an unsigned int.
+
+and in the main function, it was cast to a long.
+
+Assuming, long to be 4 bytes, i gave the input with 1 and 31 zeroes.
+it would be considered a valid input, as when typecast to long, it turns negative.
+
+Now, whenever I lose, the my bet is subtracted from the cash I have, and as the bet is negative, the overall impact is increase in my cash.
+
+To win fast, I chose option 5 every time, as it is the least likely to happen.
