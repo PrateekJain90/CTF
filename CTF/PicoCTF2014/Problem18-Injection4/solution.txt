@@ -1,0 +1,10 @@
+Saw that the register page has vulnerability.
+
+First found length of password by using combinations of:
+admin' and length(password)=1/2/... #
+
+Found length of password to be 27
+
+Then tried to find password like:
+
+admin' and password like "a/b/...%" #
