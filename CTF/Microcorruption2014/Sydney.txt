@@ -1,0 +1,9 @@
+The code was very straightforward and it compared the entered password 2 bytes at a time.
+
+The first 2 bytes were compared with #0x4c2d
+The next 2 bytes were compared with  #0x4b5e
+The next 2 bytes were compared with  #0x264e
+The last 2 bytes were compared with  #0x7154
+
+Entered the password according to endianness and the unlocked.
+2d4c5e4b4e265471

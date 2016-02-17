@@ -1,0 +1,9 @@
+The input asked was between 8-16 characters.
+
+Tried to enter more number of bytes. Whenever more bytes are entered the code executes properly but gives a 'bad isns sequence' message in the end.
+
+Tried to figure out if it was happening because of the long password I am giving. -> To my surprise found that the password validation is not the cause. This happens after the control returns from password validation function. i.e, in the login function before return.
+
+The statement add #10, sp caused the sp to jump to that location. It looked for the return address here. But, that was corrupted by my input string. So, to make it a valid address, I gave the address of the unlock_door function at that particular location in my input string.
+
+Now, after password validation, when 10 was added to sp, it jumped to unlock_door and successfully unlocked.

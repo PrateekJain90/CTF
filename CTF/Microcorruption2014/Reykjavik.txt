@@ -1,0 +1,20 @@
+This problem had a crypto function -> which was there to mislead. It had nothing to do with the problem.
+This took some time to realise. It was because, I immediately began to see what the function does without checking if it was being called.
+
+After entering input, I let it beak at the default breakpoint where the debugger halts the execution by default.
+This was at an address, the instructions at which were not visible in the dump.
+
+The validation began as I stepped through some of the instructions. (2444)
+
+The instruction 
+add #0x6, sp caused the sp to move to the beginning of my input string.
+The next instruction was, 	
+cmp #0x3c62, -x24(r4)
+
+On checking, the value at r4 - 0x24,
+I found that this again points to my input.
+
+The next line was 
+jnz $+0xc
+
+So, when my input did not start with a 623c, the jnz passed and the input failed. So, I just gave 623c as my input. As i stepped through, jnz failed, which followed a call to INT with a #0x7f and the door was unlocked.

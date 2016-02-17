@@ -1,0 +1,11 @@
+Same as whitehorse.
+
+The only difference was that the input string was being copied to another place.
+Then the place where the original input string is stored is reset.
+
+Essentially, conditional unlock is called after this step.
+
+It is the same thing as if the input string was saved at this new location (where it is copied) initially.
+
+Use the same exploit as Whitehorse. Only, the address of the INT function changed. Rest remains the same.
+Passed 0x7f after 2 bytes from where I had input the address for INT.

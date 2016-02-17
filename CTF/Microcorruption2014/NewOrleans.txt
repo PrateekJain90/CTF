@@ -1,0 +1,12 @@
+Put a breakpoint in check_password
+Gave input hello
+The input password is stored and r15 points to the first byte of the password
+
+Then this address is transferred from r15 to r13
+Next r14(initially 0) is added to r13.
+The first byte of my input password is then compared to (2400)+r14.
+When a character match occurs, r14 is incremented.
+
+This means that the password must be stored at 2400 as each byte starting from that is compared with the password that I enter.
+Also, a check for 0x8 in the code tells that the password must be 7 bytes long excluding the null byte.
+So, copied 7 bytes from 2400 and that was the password.

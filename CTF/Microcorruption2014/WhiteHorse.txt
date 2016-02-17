@@ -1,0 +1,23 @@
+In this problem, once again it is said that the password must be between 8-16 characters.
+But as before, the buffer can be overflown.
+
+On entering a long password, I see that the once the password is checked and is said to be non-valid, 
+the instruction add #0x10, sp causes a "isns bad sequence". 
+
+So, I have to write a valid address in that place using my input string.
+As in previous cases, there is no unlock_door function which directly unlocks the door. Instead, the only function that can be used somehow is the conditional_unlock function.
+
+I see that to verify the password, an interrupt with a value of 7e is called. 
+On checking the manual for HSM-2, I found out that this takes 1 argument, which is the password.
+Just after that, it is mentioned in the manual that, if an interrupt is called with a value of 0x7f, no argument is required.
+
+I decided to make use of this.
+I gave the address of the INT function in the place of sp+0x10.
+
+This made sure that after the password verification fails and before the login function returns, the control is sent to the INT function.
+Now, I had to find a way to pass the 0x7f.
+On checking the code for INT, I found that the function picks its argument from sp+2.
+
+So, 2 bytes after the address for INT, I wrote a 7f.
+
+Now, when the control was transferred to INT, it took 7f from sp+2 and caused the door to unlock without looking at the password.

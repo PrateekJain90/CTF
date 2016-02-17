@@ -1,0 +1,12 @@
+This problem was very much similar to cusco in terms of code.
+
+In addition to providing a proper return address like before, there was an additional check.
+
+In the code, there was a check, which did something like:
+cmp.b e6, 0x11(sp)
+
+Again, this 0x11(sp) pointed to a location in the input string provided by me. So, I put an 'e6' after the 17th byte of my input.
+After that, as before, to satisfy the instruction:
+add #0x12sp
+
+I put the return address of the unlock_door function at that particular place in my input string.

